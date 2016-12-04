@@ -1,20 +1,17 @@
-package com.geren.test.test.ui;
+package com.geren.test.test.ui.Activitys;
 
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.view.KeyEvent;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.amap.api.maps.AMap;
-import com.amap.api.maps.SupportMapFragment;
 import com.geren.test.test.R;
-import com.geren.test.test.ui.fragments.ActionFragment;
-import com.geren.test.test.ui.fragments.BaseFragment;
+import com.geren.test.test.ui.Activitys.BaseActivity;
+import com.geren.test.test.ui.fragments.CompassFragment;
 import com.geren.test.test.ui.fragments.MapFragment;
 
 import java.lang.reflect.InvocationTargetException;
@@ -24,7 +21,6 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     private RadioGroup rg_main;
     private Fragment showFragment;
     private FragmentManager fmManager;
-    private AMap aMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +59,8 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
             case R.id.rb_map:
                 choseFragment(MapFragment.TAG, MapFragment.class);
                 break;
-            case R.id.rb_action:
-                choseFragment(ActionFragment.TAG, ActionFragment.class);
+            case R.id.rb_compass:
+                choseFragment(CompassFragment.TAG, CompassFragment.class);
                 break;
         }
     }
@@ -106,4 +102,31 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         fmTransaction.commit();
 
     }
+
+    private long exitTime = 0;
+    /**
+     * 按键点击事件
+     * @param keyCode
+     * @param event
+     * @return
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+            if(keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN){
+                if((System.currentTimeMillis()-exitTime) > 2000){
+                    Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                    exitTime = System.currentTimeMillis();
+                } else {
+                    finish();
+                    System.exit(0);
+                }
+                return true;
+            }
+            return super.onKeyDown(keyCode, event);
+        }
+
+
+
+
 }

@@ -1,4 +1,4 @@
-package com.geren.test.test.ui;
+package com.geren.test.test.ui.Activitys;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,4 +12,5 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
     }
+
 }

@@ -26,4 +26,8 @@
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/text_color</item>
     </style>
+
+    <declare-styleable name="compassView">
+        <attr name="default_size" format="dimension"/>
+    </declare-styleable>
 </resources>

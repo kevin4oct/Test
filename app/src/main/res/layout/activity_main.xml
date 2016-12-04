@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.Activitys.MainActivity">
 
     <FrameLayout
         android:id="@+id/contain_main"
@@ -28,8 +28,8 @@
 
         <RadioButton
             style="@style/radioButton_main"
-            android:id="@+id/rb_action"
-            android:text="ACT" />
+            android:id="@+id/rb_compass"
+            android:text="COM" />
 
     </RadioGroup>
 </LinearLayout>

@@ -47,14 +47,14 @@
             android:name="com.amap.api.v2.apikey"
             android:value="f271ccb14c0b551da83b9dddd5d1a07f" />
 
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.Activitys.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.BaseActivity" />
+        <activity android:name=".ui.Activitys.BaseActivity" />
 
         <service android:name="com.amap.api.location.APSService"></service>
 
